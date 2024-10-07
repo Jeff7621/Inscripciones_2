@@ -1,0 +1,108 @@
+﻿@model Validacion_WEB.Models.MatriculaEstudiante
+@{
+    ViewData["Title"] = "Formulario";
+}
+
+<head>
+    <link rel="stylesheet" href="/css/Formulario.css" asp-append-version="true" />
+</head>
+
+<div class="content">
+
+    <div class="container">
+        <div class="row align-items-stretch justify-content-center no-gutters">
+            <div class="col-md-7">
+                <div class="form h-100 contact-wrap p-5">
+                    <h3 class="text-center">Formulario Matricula</h3>
+
+                    <form asp-action="FormularioMecanica" asp-controller="Indel">
+                        <div asp-validation-summary="ModelOnly"></div>
+                       <div class="row">
+                            <div class="col-md-6 form-group mb-3">
+                                <label asp-for="Nombre" for="" class="col-form-label">Nombre *</label>
+                                <input asp-for="Nombre" type="text" class="form-control" placeholder="Tu Nombre">
+                                <span asp-validation-for="Nombre" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 form-group mb-3">
+                                <label asp-for="Apellido" class="col-form-label">Apellido *</label>
+                                <input asp-for="Apellido" class="form-control"  placeholder="Tu apellido">
+                                <span asp-validation-for="Apellido" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 form-group mb-3">
+                                <label asp-for="FechaNac" class="col-form-label">Fecha de Nacimiento *</label>
+                                <input asp-for="FechaNac" type="date" class="form-control" />
+                                <span asp-validation-for="FechaNac" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 form-group mb-3">
+                                <label asp-for="Correo" class="col-form-label">Email *</label>
+                                <input asp-for="Correo" type="email" class="form-control" placeholder="Tu Correo" />
+                                <span asp-validation-for="Correo" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="col-md-6 form-group mb-3">
+                                <label asp-for="Telefono" class="col-form-label">Telefono *</label>
+                                <input asp-for="Telefono" class="form-control" placeholder="Tu Teléfono" />
+                                <span asp-validation-for="Telefono" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="col-md-6 form-group mb-3">
+                                <label asp-for="Nie" class="col-form-label">NIE *</label>
+                                <input asp-for="Nie" class="form-control" placeholder="Tu NIE" />
+                                <span asp-validation-for="Nie" class="text-danger"></span>
+                            </div>
+
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group mb-3">
+                                <label asp-for="Responsable" class="col-form-label">Responsable *</label>
+                                <input asp-for="Responsable" class="form-control" placeholder="Nombre del Responsable" />
+                                <span asp-validation-for="Responsable" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 form-group mb-3">
+                                <label asp-for="TelefonoRes" class="col-form-label">Teléfono del Responsable *</label>
+                                <input asp-for="TelefonoRes" class="form-control" placeholder="Teléfono del Responsable" />
+                                <span asp-validation-for="TelefonoRes" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 form-group mb-3">
+                                <label for="OpcionBachillerato" class="col-form-label">Opción de Bachillerato</label>
+                                <select asp-for="OpcionBachillerato" class="form-control" id="OpcionBachillerato">
+                                    <option value="">Seleccione una opción</option>
+                                    <option value="Mecanica">Mecanica</option>
+                                    <option value="General">General</option>
+                                    <option value="Software">Desarrollo de software</option>
+                                    <option value="Contaduria">Contaduria</option>
+                                    <option value="Administracion">Administracion</option>
+                                </select>
+                                <span asp-validation-for="OpcionBachillerato" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-md-5 form-group text-center">
+                                <input type="submit" value="ENVIAR FORMULARIO" class="btn btn-block btn-primary rounded-0 py-2 px-4">
+                                <span class="submitting"></span>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div id="form-message-warning mt-4"></div>
+                    <div id="form-message-success">
+                        Formulario enviado correctamente
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

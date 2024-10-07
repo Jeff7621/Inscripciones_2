@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Validacion_WEB.Models.MatriculaEstudiante>
+@{
+    ViewData["Tittle"] = "Contador";
+}
+
+<style>
+    body {
+        background-color: rgba(237,237,237,255);
+    }
+</style>
+
+<p>
+    <a asp-action="">Crear Cliente</a>
+</p>
+<form asp-action="" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Busca por Nombre o Apellido: <input type="text" name="Buscar" value="@ViewData["Buscar"]" />
+            <input type="submit" value="Buscar" class="btn btn-success" />
+
+
+            <a asp-action="" class="btn btn-link">Exporta excel</a>
+
+        </p>
+    </div>
+</form>
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaNac)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefonoRes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OpcionBachillerato)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.FechaNac)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Correo)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Nie)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.TelefonoRes)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.OpcionBachillerato)
+                </th>
+
+                <td>
+                    <a class="btn btn-primary" asp-action="" asp-route-id="@item.Id">Editar</a>
+                    <a class="btn btn-secondary" asp-action="" asp-route-id="@item.Id">Detalle</a>
+                    <a class="btn btn-danger" asp-action="" asp-route-id="@item.Id">Borrar</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+

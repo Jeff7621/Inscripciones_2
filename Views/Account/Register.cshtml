@@ -1,0 +1,42 @@
+﻿@model Validacion_WEB.Datos.RegistroViewModel
+ 
+@{
+    ViewData["Title"] = "Registro";
+}
+
+<center><h1>Registrate</h1></center>
+
+
+<div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="card " style="border-radius: 1rem;">
+            <div class="row g-0">
+                <div class="col-12">
+                    <div class="card-body p-4 p-lg-5 text-black">
+                        <form asp-action="Registro">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="mb-3">
+                                <label asp-for="Email" class="form-label"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="Password" class="form-label"></label>
+                                <input asp-for="Password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <button class="btn btn-dark btn-lg btn-block">Gurdar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{
+    //para validar el Front End debemos hacer lo siguiente.
+}
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
