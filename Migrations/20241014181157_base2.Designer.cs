@@ -12,8 +12,8 @@ using Validacion_WEB.Datos;
 namespace Validacion_WEB.Migrations
 {
     [DbContext(typeof(AplicationDBContext))]
-    [Migration("20241006013308_database")]
-    partial class database
+    [Migration("20241014181157_base2")]
+    partial class base2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -274,6 +274,22 @@ namespace Validacion_WEB.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tmatricula");
+                });
+
+            modelBuilder.Entity("Validacion_WEB.Models.OpcionBachillerato", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Bachilleratos")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TBachilleratos");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

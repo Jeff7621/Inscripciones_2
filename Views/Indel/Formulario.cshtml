@@ -3,6 +3,10 @@
     ViewData["Title"] = "Formulario";
 }
 
+@{
+    List<Validacion_WEB.Models.OpcionBachillerato> xopcion = ViewBag.lista as List<Validacion_WEB.Models.OpcionBachillerato>;
+}
+
 <head>
     <link rel="stylesheet" href="/css/Formulario.css" asp-append-version="true" />
 </head>
@@ -15,7 +19,7 @@
                 <div class="form h-100 contact-wrap p-5">
                     <h3 class="text-center">Formulario Matricula</h3>
 
-                    <form asp-action="FormularioMecanica" asp-controller="Indel">
+                    <form asp-action="Formulario" asp-controller="Indel">
                         <div asp-validation-summary="ModelOnly"></div>
                        <div class="row">
                             <div class="col-md-6 form-group mb-3">
@@ -75,13 +79,11 @@
                         <div class="row">
                             <div class="col-md-12 form-group mb-3">
                                 <label for="OpcionBachillerato" class="col-form-label">Opción de Bachillerato</label>
-                                <select asp-for="OpcionBachillerato" class="form-control" id="OpcionBachillerato">
-                                    <option value="">Seleccione una opción</option>
-                                    <option value="Mecanica">Mecanica</option>
-                                    <option value="General">General</option>
-                                    <option value="Software">Desarrollo de software</option>
-                                    <option value="Contaduria">Contaduria</option>
-                                    <option value="Administracion">Administracion</option>
+                                <select asp-for="OpcionBachillerato" class="form-control">
+                                    @foreach (var Opcion in xopcion)
+                                    {
+                                        <option value="@Opcion.Id">@Opcion.Bachilleratos</option>
+                                    }
                                 </select>
                                 <span asp-validation-for="OpcionBachillerato" class="text-danger"></span>
                             </div>

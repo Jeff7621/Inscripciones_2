@@ -26,7 +26,7 @@ optiones.UseSqlServer(builder.Configuration.GetConnectionString("Cnn"))
 );
 
 builder.Services.AddScoped<IRepositorioMatricula, RepositorioMatricula>();
-
+builder.Services.AddScoped<IRepositorioBachillerato, RepositorioBachillerato>();
 
 
 //Activa los servicios para que el usuario se pueda logear

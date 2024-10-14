@@ -10,11 +10,13 @@ namespace Validacion_WEB.Controllers
     {
         private readonly AplicationDBContext _context;
         private readonly IRepositorioMatricula _repositorioMatricula;
+        private readonly IRepositorioBachillerato _repositorioBachillerato;
 
-        public IndelController(AplicationDBContext context, IRepositorioMatricula repositorioMatricula)
+        public IndelController(AplicationDBContext context, IRepositorioMatricula repositorioMatricula, IRepositorioBachillerato repositorioBachillerato)
         {
             _context = context;
             _repositorioMatricula = repositorioMatricula;
+            _repositorioBachillerato = repositorioBachillerato;
         }
 
         [AllowAnonymous]
@@ -42,9 +44,11 @@ namespace Validacion_WEB.Controllers
             return View();
         }
 
+        [HttpGet]
         [AllowAnonymous]
-        public IActionResult Formulario()
+        public async Task<IActionResult> Formulario()
         {
+            ViewBag.lista = await _repositorioBachillerato.ListaBachillerato();
             return View();
         }
 

@@ -12,6 +12,7 @@ namespace Validacion_WEB.Datos
 
         }
 
-        public DbSet<MatriculaEstudiante> Tmatricula { get; set; } 
+        public DbSet<MatriculaEstudiante> Tmatricula { get; set; }
+        public DbSet<OpcionBachillerato> TBachilleratos { get; set; }
     }
 }
